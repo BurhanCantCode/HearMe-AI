@@ -1,39 +1,39 @@
 'use client'
 
-import React, { useState } from 'react'
-import { motion } from 'framer-motion'
-import { Mail, Lock, ArrowRight } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import { signInWithEmailAndPassword } from 'firebase/auth'
-import { auth } from '@/lib/firebase' // Import your Firebase auth configuration
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Mail, Lock, ArrowRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '@/lib/firebase'; // Import your Firebase auth configuration
 
 export function LoginPage() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState<string | null>(null) // For displaying login errors
-  const router = useRouter() // For redirecting
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState<string | null>(null); // For displaying login errors
+  const router = useRouter(); // For redirecting
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setError(null) // Reset error message before new login attempt
+    e.preventDefault();
+    setError(null); // Reset error message before new login attempt
 
     try {
       // Attempt to sign in the user with email and password
-      const userCredential = await signInWithEmailAndPassword(auth, email, password)
-      console.log('Login successful with:', userCredential.user)
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      console.log('Login successful with:', userCredential.user);
       
       // Redirect to the homepage ("/")
-      router.push('/')
-    } catch (err: any) {
-      console.error('Login failed:', err)
-      setError('Invalid email or password. Please try again.') // Display error message
+      router.push('/');
+    } catch (err) {
+      console.error('Login failed:', err);
+      setError('Invalid email or password. Please try again.'); // Display error message
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-black text-white flex items-center justify-center p-4">
@@ -50,6 +50,7 @@ export function LoginPage() {
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
+              {error && <p className="text-red-500">{error}</p>} {/* Display error if login fails */}
               <div className="space-y-2">
                 <Label htmlFor="email" className="sr-only">
                   Email
@@ -84,7 +85,6 @@ export function LoginPage() {
                   <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
                 </div>
               </div>
-              {error && <p className="text-red-500">{error}</p>} {/* Display error if login fails */}
               <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
                 Login <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -93,7 +93,7 @@ export function LoginPage() {
           <CardFooter className="justify-center">
             <p className="text-sm text-gray-400">
               Don&apos;t have an account?{' '}
-              <Link href="/Signup" className="text-blue-400 hover:underline">
+              <Link href="/signup" className="text-blue-400 hover:underline">
                 Sign up
               </Link>
             </p>
@@ -101,5 +101,5 @@ export function LoginPage() {
         </Card>
       </motion.div>
     </div>
-  )
+  );
 }

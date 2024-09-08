@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Mic, FileText, Pause, LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { useTheme } from 'next-themes';
 import { useRouter } from 'next/navigation';
 import { signOut, onAuthStateChanged } from 'firebase/auth';
 import { db, auth } from '@/lib/firebase';

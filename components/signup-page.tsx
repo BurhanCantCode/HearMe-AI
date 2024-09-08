@@ -63,7 +63,7 @@ export function SignupPage() {
         <Card className="w-full max-w-md bg-gray-900 border-gray-800">
           <CardHeader>
             <CardTitle className="text-2xl font-bold text-center bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text">
-              Sign up for AudioInsight
+              Sign up for HearMe AI
             </CardTitle>
           </CardHeader>
           <CardContent>

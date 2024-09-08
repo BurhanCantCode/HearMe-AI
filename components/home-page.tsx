@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mic, FileText, Play, Pause, LogOut } from 'lucide-react';
+import { Mic, FileText, Pause, LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useTheme } from 'next-themes';
@@ -21,7 +21,6 @@ export function HomePage() {
   const [isLoading, setIsLoading] = useState(false);
   const mediaRecorder = useRef<MediaRecorder | null>(null);
   const audioChunks = useRef<Blob[]>([]);
-  const { theme } = useTheme();
   const router = useRouter();
   const fileInputRef = useRef<HTMLInputElement | null>(null); // Reference for file input
 

@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+# HearMe AI - The Versatile Meeting Summarization Tool
+
+**HearMe AI** currently a web-based prototype that enables users to efficiently record or upload audio, which is then transcribed and summarized. Built using **Next.js**, it leverages **Deepgram's API** for real-time transcription and **Hugging Face** for generating detailed summaries. The app is designed to streamline meeting reviews by providing concise summaries of discussions.
+
+## Features
+
+- **Audio Recording & Uploading**: Users can record audio directly from the web app or upload pre-recorded files.
+- **Automated Summarization**: Transcriptions and summaries are generated automatically using cutting-edge AI.
+- **Email Summaries**: Summaries are emailed to users for easy reference.
+- **Built with Next.js**: A fast, scalable framework for building the web app prototype.
+- **Powered by Deepgram & Hugging Face**: For advanced speech-to-text and summarization capabilities.
+
+## Prototype Overview
+
+HearMe AI began as a final project aimed at revolutionizing how people revisit meetings. The prototype has garnered significant interest, with **150+ signups** and **400+ waitlist viewers** globally, marking the beginning of its journey.
 
 ## Getting Started
 
-First, run the development server:
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/hearme-ai.git
+   cd hearme-ai
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. **Environment Setup**:
+   Create a `.env.local` file in the root directory with the following:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+   ```bash
+   NEXT_PUBLIC_DEEPGRAM_API_KEY=your_deepgram_api_key
+   NEXT_PUBLIC_HUGGINGFACE_API_KEY=your_huggingface_api_key
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. **Run the app**:
+   ```bash
+   npm run dev
+   ```
 
-## Learn More
+   The app will be available at `http://localhost:3000`.
 
-To learn more about Next.js, take a look at the following resources:
+## Future Development
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Full integration of advanced summarization features.
+- Expansion to support a wider range of file types and languages.
+- Official launch after prototype refinements.
+- Launch of a windows app
+- An android and ios app
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+  ![HearMe](https://github.com/user-attachments/assets/6adb346e-d29a-4b4c-9774-fe43962728a6)
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
